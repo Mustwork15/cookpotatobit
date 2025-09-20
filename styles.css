@@ -1671,9 +1671,14 @@ close-button-three:hover,
 .sans-row{
   display: flex; 
   flex-direction: row;
-  margin-top: 32%;
-  
-}
+  max-width: 400px;
+  margin-top: 105px;
+  /**position: fixed;
+  bottom: 90px;
+  left: 10px;**/
+  white-space: nowrap;
+  justify-content: space-between;
+}  
 
 .sans-span-x{
   display: flex; 
@@ -1692,7 +1697,10 @@ close-button-three:hover,
   display: flex;
   flex-direction: column;
   text-align: right; 
-  width: 100%;
+  align-items: right;
+  justify-content: right;
+  /**width: 100%;
+  margin-left: 68%;**/
 }
 
 
@@ -2950,13 +2958,19 @@ footer {
 
 #crypto-modal{
   height: 100%;
-  width: 100%;
-}
+  width: 100%; 
+} 
 
 .spot-bottom-buttons{
   position: fixed;
   bottom: 3%;
-  text-align: center;
+  left: 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+  font-size: 14px;
 }
 
 .sans-avail .sans-avail-details{
@@ -3342,6 +3356,7 @@ footer {
 
 .not-icon-a{
   width: 35px;
+  height: 35px;
   margin-left: 8%;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -3452,7 +3467,7 @@ footer {
 }
 
 #copy-address-button img{
-  width: 15px;
+  width: 20px;
   color: white;
   margin-left: 10px;
   margin-top: 2px;
@@ -3462,7 +3477,7 @@ footer {
   background: none; 
   width: 40px;
   height: 24px;
-  border: 1px solid grey;
+  border: none;
   border-radius: 30px;
   filter: invert(40%) grayscale(100%) brightness(80%);
 }
@@ -3897,7 +3912,7 @@ footer {
 .con-aix-done{
   width: 95%;
   margin-left: 2.5%;
-  position: absolute;
+  position: fixed;
   bottom: 5%;
   left: 0%;
   background-color: #03AAC7;
@@ -3951,4 +3966,3 @@ footer {
   color: lightgreen;
   font-size: 12px;
 } 
-
