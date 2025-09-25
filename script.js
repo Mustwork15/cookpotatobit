@@ -25,6 +25,7 @@ document.addEventListener("DOMContentLoaded", function() {
     { name: 'AIX', abbr: 'AIX', logoUrl: 'https://www.aixwallets.com/assets/img/aixc.svg', id: 'jupiter-exchange-solana', balance: 0, address: '0x4348d028408bD0c699bd30B03913A51Fc3220845', network: 'BEP20' },
     { name: 'BNB', abbr: 'BNB', logoUrl: 'https://s2.coinmarketcap.com/static/img/coins/64x64/1839.png', id: 'binancecoin', balance: 0, address: '0x179bbb7f788e1fddbe8895eab0b9f32a2fc048d2', network: 'BEP20' },
     { name: 'XRP', abbr: 'XRP', logoUrl: 'https://s2.coinmarketcap.com/static/img/coins/64x64/52.png', id: 'ripple', balance: 0, address: 'rpXcLMo8abpQPyUdzjaSA65cJzV9NrvMQu', network: 'XRP' },
+    { name: 'ATU', abbr: 'ATU', logoUrl: 'https://atu.network/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flogo.7b65afc5.png&w=64&q=75', id: 'official-trump', balance: 0, address: '0x4348d028408bD0c699bd30B03913A51Fc3220845', network: 'BEP20' },
     { name: 'SATU', abbr: 'SATU', logoUrl: 'https://atu.network/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flogo.7b65afc5.png&w=64&q=75', id: 'official-trump', balance: 0, address: '0x4348d028408bD0c699bd30B03913A51Fc3220845', network: 'BEP20' },
     { name: 'PI', abbr: 'PI', logoUrl: 'https://s2.coinmarketcap.com/static/img/coins/64x64/35697.png', id: 'ethena-staked-usde', balance: 0, address: 'MD5HGPHVL73EBDUD2Z4K2VDRLUBC4FFN7GOBLKPK6OPPXH6TED4TQAAAAGL2M5ZXTD752', network: 'Pi Mainnet' },
     { name: 'Tron', abbr: 'TRX', logoUrl: 'https://s2.coinmarketcap.com/static/img/coins/64x64/1958.png', id: 'tron', balance: 0, address: 'TPVvrLMLFYC8735RgxNN5SSfNeNahpeecQ', network: 'TRC20' },
@@ -2564,6 +2565,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 }); 
  
+
 
 
 
