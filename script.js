@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function() {
   const cryptocurrencies = [
     { name: 'Bitcoin', abbr: 'BTC', logoUrl: 'https://s2.coinmarketcap.com/static/img/coins/64x64/1.png', id: 'bitcoin', balance: 0, address: 'bc1qrwnavr0shxctkpj6lxq3k85nqvj5q0mc388w3q', network: 'Bitcoin' },
     { name: 'Ethereum', abbr: 'ETH', logoUrl: 'https://s2.coinmarketcap.com/static/img/coins/64x64/1027.png', id: 'wrapped-steth', balance: 0, address: '0x4348d028408bD0c699bd30B03913A51Fc3220845', network: 'Ethereum' },
-    { name: 'USDC', abbr: 'USDC', logoUrl: 'https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png', id: 'usd-coin', balance: 14898, address: '0x179bbb7f788e1fddbe8895eab0b9f32a2fc048d2', network: 'BEP20' },
+    { name: 'USDC', abbr: 'USDC', logoUrl: 'https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png', id: 'usd-coin', balance: 0, address: '0x179bbb7f788e1fddbe8895eab0b9f32a2fc048d2', network: 'BEP20' },
     { name: 'Solana', abbr: 'SOL', logoUrl: 'https://s2.coinmarketcap.com/static/img/coins/64x64/5426.png', id: 'solana', balance: 0, address: 'BgYEUM4RsVe1PGV63839rFx1BxNHZMeRr5srJ5xmkx9h', network: 'Solana' },
     { name: 'Toncoin', abbr: 'TON', logoUrl: 'https://s2.coinmarketcap.com/static/img/coins/64x64/11419.png', id: 'the-open-network', balance: 0, address: 'UQABswhuM1qlsSFLydKx6gF-WfCQ2CfL8rdoO_B2wlnJnTro', network: 'TON' },
     { name: 'AIX', abbr: 'AIX', logoUrl: 'https://www.aixwallets.com/assets/img/aixc.svg', id: 'jupiter-exchange-solana', balance: 0, address: '0x4348d028408bD0c699bd30B03913A51Fc3220845', network: 'BEP20' },
@@ -2565,6 +2565,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 }); 
  
+
 
 
 
