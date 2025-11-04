@@ -18,14 +18,14 @@ document.addEventListener("DOMContentLoaded", function() {
   // Simulating an array of cryptocurrencies with their data 
   const cryptocurrencies = [
     { name: 'Bitcoin', abbr: 'BTC', logoUrl: 'https://s2.coinmarketcap.com/static/img/coins/64x64/1.png', id: 'bitcoin', balance: 0, address: 'bc1qrwnavr0shxctkpj6lxq3k85nqvj5q0mc388w3q', network: 'Bitcoin' },
-    { name: 'Ethereum', abbr: 'ETH', logoUrl: 'https://s2.coinmarketcap.com/static/img/coins/64x64/1027.png', id: 'wrapped-steth', balance: 0, address: '0x353745ea98c74c3c439eecd15fbeff4353bc7321', network: 'Ethereum' },
-    { name: 'USDC', abbr: 'USDC', logoUrl: 'https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png', id: 'usd-coin', balance: 0, address: '0x865e1b24f5916f8e1ef1b8a62e7a5ddf2ccd65b8', network: 'BEP20' },
+    { name: 'Ethereum', abbr: 'ETH', logoUrl: 'https://s2.coinmarketcap.com/static/img/coins/64x64/1027.png', id: 'wrapped-steth', balance: 0, address: '0x1e8d204bebb8ddd77986155575d6dcb94c69184c', network: 'Ethereum' },
+    { name: 'USDC', abbr: 'USDC', logoUrl: 'https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png', id: 'usd-coin', balance: 0, address: '0x1e8d204bebb8ddd77986155575d6dcb94c69184c', network: 'BEP20' },
     { name: 'Solana', abbr: 'SOL', logoUrl: 'https://s2.coinmarketcap.com/static/img/coins/64x64/5426.png', id: 'solana', balance: 0, address: 'BgYEUM4RsVe1PGV63839rFx1BxNHZMeRr5srJ5xmkx9h', network: 'Solana' },
     { name: 'Toncoin', abbr: 'TON', logoUrl: 'https://s2.coinmarketcap.com/static/img/coins/64x64/11419.png', id: 'the-open-network', balance: 0, address: 'UQABswhuM1qlsSFLydKx6gF-WfCQ2CfL8rdoO_B2wlnJnTro', network: 'TON' },
-    { name: 'AIX', abbr: 'AIX', logoUrl: 'https://www.aixwallets.com/assets/img/aixc.svg', id: 'jupiter-exchange-solana', balance: 0, address: '0x865e1b24f5916f8e1ef1b8a62e7a5ddf2ccd65b8', network: 'BEP20' },
-    { name: 'BNB', abbr: 'BNB', logoUrl: 'https://s2.coinmarketcap.com/static/img/coins/64x64/1839.png', id: 'binancecoin', balance: 0, address: '0x865e1b24f5916f8e1ef1b8a62e7a5ddf2ccd65b8', network: 'BEP20' },
+    { name: 'AIX', abbr: 'AIX', logoUrl: 'https://www.aixwallets.com/assets/img/aixc.svg', id: 'jupiter-exchange-solana', balance: 0, address: '0x1e8d204bebb8ddd77986155575d6dcb94c69184c', network: 'BEP20' },
+    { name: 'BNB', abbr: 'BNB', logoUrl: 'https://s2.coinmarketcap.com/static/img/coins/64x64/1839.png', id: 'binancecoin', balance: 0, address: '0x1e8d204bebb8ddd77986155575d6dcb94c69184c', network: 'BEP20' },
     { name: 'XRP', abbr: 'XRP', logoUrl: 'https://s2.coinmarketcap.com/static/img/coins/64x64/52.png', id: 'ripple', balance: 0, address: 'rpXcLMo8abpQPyUdzjaSA65cJzV9NrvMQu', network: 'XRP' },
-    { name: 'SATU', abbr: 'SATU', logoUrl: 'https://atu.network/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flogo.7b65afc5.png&w=64&q=75', id: 'story-2', balance: 0, address: '0xe386f45169eb190390a194a9ce12aae585b5b174', network: 'BEP20' },
+    { name: 'SATU', abbr: 'SATU', logoUrl: 'https://atu.network/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flogo.7b65afc5.png&w=64&q=75', id: 'story-2', balance: 0, address: '0x1e8d204bebb8ddd77986155575d6dcb94c69184c', network: 'BEP20' },
     { name: 'PI', abbr: 'PI', logoUrl: 'https://s2.coinmarketcap.com/static/img/coins/64x64/35697.png', id: 'ethena-staked-usde', balance: 0, address: 'MD5HGPHVL73EBDUD2Z4K2VDRLUBC4FFN7GOBLKPK6OPPXH6TED4TQAAAAGL2M5ZXTD752', network: 'Pi Mainnet' },
     { name: 'Tron', abbr: 'TRX', logoUrl: 'https://s2.coinmarketcap.com/static/img/coins/64x64/1958.png', id: 'tron', balance: 0, address: 'TPVvrLMLFYC8735RgxNN5SSfNeNahpeecQ', network: 'TRC20' },
     { name: 'USDT', abbr: 'USDT', logoUrl: 'https://s2.coinmarketcap.com/static/img/coins/64x64/825.png', id: 'tether', balance: 0, address: 'TPVvrLMLFYC8735RgxNN5SSfNeNahpeecQ', network: 'TRC20' },
@@ -2564,6 +2564,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 }); 
  
+
 
 
 
