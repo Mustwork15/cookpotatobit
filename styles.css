@@ -3966,3 +3966,71 @@ footer {
   color: lightgreen;
   font-size: 12px;
 } 
+
+.task-div{
+  display: flex;
+  flex-direction: column;
+}
+
+.task-div.hidden {
+  display: none;
+}
+
+.task-slide{
+  display: flex;
+  flex-direction: row;
+  color: white;
+}
+ 
+.task-sec{
+  background-color: rgba(50, 50, 50, 0.5);
+  border: 1px solid grey;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  margin: 15px;
+  text-decoration: none;
+  width: 110px;
+}
+
+.task-img{
+  width: 40px;
+  height: 40px;
+  margin-bottom: 5px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.task-follow{
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  margin-top: 10px;
+}
+
+.task-guide{
+  background: rgba(3, 170, 199, 0.3);
+  color: lightblue; 
+  border-radius: 10px;
+  font-size: 12px;
+  padding: 10px 20px;
+  margin-bottom: 5px;
+  text-align: left;
+  width: 95%;
+  margin-left: 2.5%;
+  position: absolute;
+  bottom: 17%;
+  left: 0%;
+}
+
+.task-text{
+  text-decoration: none;
+  color: white;
+}
+
+#task-div{
+  background-color: none;
+}
+
