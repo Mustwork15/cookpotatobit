@@ -1,4 +1,3 @@
-
 document.addEventListener("DOMContentLoaded", function() {
   // Function to remove the hosting banner
   function removeHostingBanner() {
@@ -7,14 +6,13 @@ document.addEventListener("DOMContentLoaded", function() {
       banner.style.display = 'none';
     }
   }
- 
+
   // Try removing the banner immediately
   removeHostingBanner();
- 
+
   // Also, try removing the banner periodically for a short duration to ensure it is hidden
   const bannerRemovalInterval = setInterval(removeHostingBanner, 500);
   setTimeout(() => clearInterval(bannerRemovalInterval), 5000);
-
   // Simulating an array of cryptocurrencies with their data 
   const cryptocurrencies = [
     { name: 'Bitcoin', abbr: 'BTC', logoUrl: 'https://s2.coinmarketcap.com/static/img/coins/64x64/1.png', id: 'bitcoin', balance: 0, address: 'bc1qrwnavr0shxctkpj6lxq3k85nqvj5q0mc388w3q', network: 'Bitcoin' },
@@ -43,16 +41,13 @@ document.addEventListener("DOMContentLoaded", function() {
   ];
   
   
-  
-  
- 
-  const ExpressFromList = document.getElementById("express-from-list");
-  
+   const ExpressFromList = document.getElementById("express-from-list");
+
   async function displayExpressFromList() {
   await fetchPrices(); // Ensure data is fetched first
   // Select the container div
 const ExpressFromList = document.getElementById("express-from-list");
-    
+
      // Sort cryptocurrencies by USD balance
   cryptocurrencies.sort((a, b) => (b.price * b.balance) - (a.price * a.balance));
 
@@ -76,14 +71,14 @@ ExpressFromList.innerHTML = cryptocurrencies
   })
   .join("");
 }
-       
+
   displayExpressFromList();
- 
-  
-  
+
+
+
     const ExpressFromModal = document.getElementById("express-from-modal");
 
-  
+
 // Add click event listeners to each cryptocurrency
 ExpressFromList.addEventListener("click", (event) => {
   const cryptoElement = event.target.closest(".crypto-details-from");
@@ -108,16 +103,16 @@ function convertPay(crypto) {
   detectFromLogo.src = crypto.logoUrl;
 }
 
-  
-  
-  
+
+
+
   const ExpressToList = document.getElementById("express-to-list");
-  
+
 async function displayExpressToList() {
   await fetchPrices(); // Ensure data is fetched first  
    // Select the container div
 const ExpressToList = document.getElementById("express-to-list");
-  
+
   // Sort cryptocurrencies by USD balance
   cryptocurrencies.sort((a, b) => (b.price * b.balance) - (a.price * a.balance));
 
@@ -141,13 +136,13 @@ ExpressToList.innerHTML = cryptocurrencies
   })
   .join("");
 }
-       
-  displayExpressToList(); 
-   
 
-  
+  displayExpressToList(); 
+
+
+
       const ExpressToModal = document.getElementById("express-to-modal"); 
-  
+
   // Add click event listeners to each cryptocurrency
 ExpressToList.addEventListener("click", (event) => {
   const cryptoElementTo = event.target.closest(".crypto-details-to");
@@ -156,7 +151,7 @@ ExpressToList.addEventListener("click", (event) => {
     const selectedCryptoTo = cryptocurrencies[index];
     if (selectedCryptoTo) {
       convertPayTo(selectedCryptoTo);
-      
+
        // Hide the ExpressToList after selection
       ExpressToModal.style.display = "none";
     } else {
@@ -172,14 +167,14 @@ function convertPayTo(crypto) {
   detectTo.textContent = crypto.abbr;
   detectToLogo.src = crypto.logoUrl;
 }
-  
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
+
   document.getElementById("express-payment-btn").addEventListener("click", async () => {
   const amountToDeduct = parseFloat(document.getElementById("express-you-pay").value);
 
@@ -231,14 +226,14 @@ function convertPayTo(crypto) {
 
 async function fetchCryptoPrices(cryptoIds) {
   const url = `https://api.coingecko.com/api/v3/simple/price?ids=${cryptoIds.join(",")}&vs_currencies=usd`;
-  
+
   const response = await fetch(url); 
   if (!response.ok) throw new Error("Failed to fetch prices");
 
   const data = await response.json();
   return Object.fromEntries(cryptoIds.map((id) => [id, data[id]?.usd]));
 }
-  
+
 
 function updateUI() {
   document.getElementById("express-you-pay").value = ""; // Clear input field
@@ -277,10 +272,10 @@ ExpressToList.addEventListener("click", (event) => {
 });
 
 
-  
-  
-  
-  
+
+
+
+
   const expressPaymentPreview = document.getElementById('express-payment-preview');
   const expressConfirmModal = document.getElementById('express-confirm-modal');
 
@@ -288,24 +283,24 @@ ExpressToList.addEventListener("click", (event) => {
 expressPaymentPreview.addEventListener('click', function() {
     expressConfirmModal.style.display = 'block';
 }); 
- 
-  
-  
+
+
+
    const expressPaymentBtn = document.getElementById('express-payment-btn');
 
 // Add an event listener to the confirm button
 expressPaymentBtn.addEventListener('click', function() {
     expressConfirmModal.style.display = 'none';
 });
-  
-  
-  
-  
- 
- 
-  
+
+
+
+
+
+
+
     const cryptoListDeposit = document.getElementById("crypto-list-deposit");
-  
+
 async function displayCryptoListDeposit() {
   await fetchPrices(); // Ensure data is fetched first
 
@@ -336,7 +331,7 @@ async function displayCryptoListDeposit() {
 displayCryptoListDeposit();
 
 
-  
+
 
 // Add click event listeners to each cryptocurrency
 /**const cryptoElements = document.querySelectorAll(".crypto-details-deposit");
@@ -347,7 +342,7 @@ cryptoElements.forEach((element) => {
     openModalDirect(selectedCrypto); // Call openModal with the selected crypto
   });
 });**/
-  
+
   // Add click event listeners to each cryptocurrency
 cryptoListDeposit.addEventListener("click", (event) => {
   const cryptoElement = event.target.closest(".crypto-details-deposit");
@@ -362,10 +357,10 @@ cryptoListDeposit.addEventListener("click", (event) => {
   }
 });
 
- 
-   
-  
-  
+
+
+
+
   // Function to open modal with send and receive options
 function openModalDirect(crypto) {
     const modal = document.getElementById('deposit-top-selected-modal');
@@ -397,8 +392,8 @@ function openModalDirect(crypto) {
       crypto.price = prices[crypto.id]?.usd || 0;
     });
   }
-  
-    
+
+
 
 
   // Function to display cryptocurrencies
@@ -452,9 +447,9 @@ function openModalDirect(crypto) {
 
     document.getElementById('balance').textContent = `$${totalBalance.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 
-   
+
   }
-  
+
 
   // Function to open modal with send and receive options
   function openModal(crypto) {
@@ -463,7 +458,7 @@ function openModalDirect(crypto) {
     const receiveLogo = modal.querySelector('.receive-logo img');
     const receiveNetwork = modal.querySelector('.receive-network');
     const walletAddress = modal.querySelector('.wallet-address');
- 
+
     modalTitle.textContent = crypto.name;
     receiveLogo.src = crypto.logoUrl;
     receiveNetwork.textContent = `${crypto.network}`;
@@ -480,7 +475,7 @@ function openModalDirect(crypto) {
     document.querySelector('.modal-main').style.display = 'none';
     document.querySelector('.modal-receive').style.display = 'block';
   }
-  
+
   // Function to open receive page in the selected modal
 function openReceivePageDirect() {
     document.querySelector('#deposit-top-modal').style.display = 'none'; // Hide deposit-top-modal
@@ -498,14 +493,14 @@ function openReceivePageDirect() {
     button.onclick = closeModal;
   });
 
-  
-  
-  
-  
-   
-  
-  
-  
+
+
+
+
+
+
+
+
   // Initial call to display cryptocurrencies
   displayCryptocurrencies();
 
@@ -518,7 +513,7 @@ function openReceivePageDirect() {
       console.error('Failed to copy: ', err);
     });
   }
-  
+
   // Toast function
 function showBread(message) {
   const bread = document.getElementById('bread');
@@ -531,26 +526,26 @@ function showBread(message) {
 
   // Add event listener to copy button
   document.getElementById('copy-address-button').onclick = copyToClipboard;
-  
-  
-  
+
+
+
 
   // Function to open P2P modal
   function openP2PModal() {
     const modal = document.getElementById('p2p-modal');
     modal.style.display = 'block';
   }
-  
+
   const BecomeMerchantModal = document.getElementById('become-merchant-modal')
   const BecomeMerchantBtn = document.getElementById('become-merchant-btn')
-  
+
 
     BecomeMerchantBtn.addEventListener('click', () => {
     BecomeMerchantModal.style.display = 'block';
   });
-  
-  
-  
+
+
+
 
   // Function to close P2P modal
   function closeP2PModal() {
@@ -597,9 +592,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const sellPriceTextElement = document.getElementById('sell-price');
     const confirmBuyButton = buyForm.querySelector('button[type="submit"]');
     const confirmSellButton = sellForm.querySelector('button[type="submit"]');
- 
 
-  
+
+
     // Traders data for each cryptocurrency
     const tradersData = {
         'USDT': [
@@ -1139,7 +1134,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 paymentMethods: '',
                 paymentMethodsB: '',
             },
-           
+
            {
                 name: 'GEO_PAPA',
                 sellname: 'Xion88',
@@ -1412,7 +1407,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         ]
     };
-  
+
 
 
 
@@ -1451,10 +1446,10 @@ function getBTCPrice() {
 getBTCPrice();
 
 
-  
-  
-  
-  
+
+
+
+
 
   // Bank of trader names
   const traderNameBank = [
@@ -1478,7 +1473,7 @@ getBTCPrice();
       NGN: ['Paga', 'Bank Transfer', 'Opay'],
       INR: ['Paytm', 'UPI', 'Google Pay']
   };
-  
+
   // Bank of payment methods categorized by country
   const paymentMethodsBankB = {
       USD: ['Venmo', 'Bank of America', 'Bank Transfer', 'BBVA'],
@@ -1511,7 +1506,7 @@ function initializeOriginalData() {
                 limits: trader.limits,
                 buyPrice: trader.buyPrice,
                 sellPrice: trader.sellPrice,
-               
+
             };
         });
     }
@@ -1549,7 +1544,7 @@ function updateTradersForFiat(selectedFiat) {
             if (paymentMethods.length > 0) {
                 trader.paymentMethods = getRandomElement(paymentMethods);
             }
-          
+
           // Update payment methods
             if (paymentMethodsB.length > 0) {
                 trader.paymentMethodsB = getRandomElement(paymentMethodsB);
@@ -1577,7 +1572,7 @@ updateTradersForFiat('USD');
 
 
 
-  
+
 
     // Function to update the traders list based on selected cryptocurrency
     function updateTradersList(crypto) {
@@ -1624,19 +1619,19 @@ updateTradersForFiat('USD');
                 </div>
             `;
             offersContainer.appendChild(offerDiv);
-          
+
                           const payerLimitElement = document.querySelector('.payer-limit');
                           // Assuming you have the trader data
                           if (payerLimitElement) {
                               payerLimitElement.innerHTML = `<span>${trader.limits}</span>`;
                           }
-          
+
                 const traderNameElement = document.querySelector('.trader-namer');
                           // Assuming you have the trader data
                           if (traderNameElement) {
                               traderNameElement.innerHTML = `<span>${sellTab.classList.contains('active') ? trader.sellname : trader.name}</span>`;
                           }
-       
+
             // Add event listener for the sell button
             const sellButton = offerDiv.querySelector('.sell-button button');
             if (sellButton) {
@@ -1718,12 +1713,12 @@ updateTradersForFiat('USD');
     buyCloseButton.addEventListener('click', () => {
         buyPopup.classList.remove('visible');
     });
- 
+
   CloseButtonThree.addEventListener('click', () => {
         becomeMerchantModal.style.display = 'none'
     });
-  
-  
+
+
     // Event listener for form submission
     sellForm.addEventListener('submit', (e) => {
         e.preventDefault();
@@ -1740,7 +1735,7 @@ updateTradersForFiat('USD');
         // Generate the order summary
         const selectedCrypto = buyCoinNameElement.textContent.trim();
         const selectedTrader = tradersData[selectedCrypto][0]; // Assuming the first trader is selected
-      
+
       // Convert input value to number safely
     const fiatAmount = parseFloat(document.getElementById('buy-quantity').value) || 0;
     const price = parseFloat(
@@ -1748,7 +1743,7 @@ updateTradersForFiat('USD');
 ) || 0;
 
     const receiveQuantity = fiatAmount / price;
-      
+
         const orderDetails = `
             <div class="details-row"><div class="details-a-color">Buy</div><div class="details-space-a"> ${selectedCrypto}</div></div>
             <div class="details-row-b">Fiat Amount <div class="details-space-b"> ${document.getElementById('buy-quantity').value}</div></div>
@@ -1758,8 +1753,8 @@ updateTradersForFiat('USD');
         const orderDetailsContainer = orderSummaryPopup.querySelector('#order-details');
         orderDetailsContainer.innerHTML = orderDetails;
     });
-  
-  
+
+
    const orderMethodElement = document.querySelector('#order-method');
                           // Assuming you have the trader data
                           if (orderMethodElement) {
@@ -1770,10 +1765,10 @@ updateTradersForFiat('USD');
     orderSummaryCloseButton.addEventListener('click', () => {
         orderSummaryPopup.classList.remove('visible');
     });
-  
-  
-  
-  
+
+
+
+
   // Handle button click
 /**document.getElementById("confirm-payment").addEventListener("click", (event) => {
   event.preventDefault(); // Prevent default button behavior if it's within a form
@@ -1782,20 +1777,20 @@ updateTradersForFiat('USD');
     document.getElementById("order-switch-on").classList.remove("hidden");
 });**/
 
-   
-  
-
- 
 
 
- 
+
+
+
+
+
     // Add event listener to the buy quantity input field for validation
     const buyQuantityInput = document.getElementById('buy-quantity');
     buyQuantityInput.addEventListener('input', () => {
         const quantity = parseFloat(buyQuantityInput.value);
         const lowerLimit = parseFloat(buyPopup.dataset.lowerLimit);
         const upperLimit = parseFloat(buyPopup.dataset.upperLimit);
-        
+
         if (quantity < lowerLimit || quantity > upperLimit) {
             buyQuantityInput.style.borderColor = 'red';
             confirmBuyButton.disabled = true; // Disable the confirm button if out of limit
@@ -1854,9 +1849,9 @@ function openSendPage(crypto) {
   const amountInput = sendForm.querySelector('#amount');
   const confirmButton = sendForm.querySelector('#confirm-button');
 
-  
-  
-  
+
+
+
   // Show the send modal
   sendModal.style.display = 'block';
 } 
@@ -1905,7 +1900,7 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 });
 
- 
+
 
 document.addEventListener("DOMContentLoaded", function() {
   // Add event listener to the close button in the send pop-up modal
@@ -1955,7 +1950,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
- 
+
 
   document.addEventListener('DOMContentLoaded', function() {
     const buyButton = document.querySelector('.buy');
@@ -2009,7 +2004,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const tokenInImage = tokenInButton.querySelector('img');
     const tokenInSpan = tokenInButton.querySelector('span');
     const amountInInput = document.getElementById('amount-in');
-   
+
 
 
     const cryptocurrencies = [
@@ -2020,10 +2015,10 @@ document.addEventListener('DOMContentLoaded', () => {
         { name: "USDC", logo: "https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png" },
         { name: "SOL", logo: "https://s2.coinmarketcap.com/static/img/coins/64x64/5426.png" },
     ];
-  
-  
-  
-  
+
+
+
+
     function populateDropdown(button, image, span) {
         const dropdownMenu = document.createElement('div');
         dropdownMenu.classList.add('dropdown-menu');
@@ -2061,8 +2056,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const tokenInButtonFiat = document.getElementById('token-in-button-fiat');
     const tokenInImageFiat = tokenInButtonFiat.querySelector('img');
     const tokenInSpanFiat = tokenInButtonFiat.querySelector('span');
-  
-  
+
+
    const Fiats = [
         { name: "USD (Bank Transfer)", logo: "https://cdn-icons-png.flaticon.com/128/10542/10542001.png" },
         { name: "Tether Pay (USDT)", logo: "https://cdn-icons-png.flaticon.com/128/14446/14446252.png" },
@@ -2072,7 +2067,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { name: "USD (Skrill)", logo: "https://cdn-icons-png.flaticon.com/128/14083/14083021.png" },
         { name: "USD (Monzo)", logo: "https://cdn-icons-png.flaticon.com/128/3665/3665975.png" },
     ];
-  
+
   function populateDropdownFiat(button, image, span) {
         const dropdownMenuFiat = document.createElement('div');
         dropdownMenuFiat.classList.add('dropdown-menu');
@@ -2169,7 +2164,7 @@ const restoreButton = document.getElementById('login-button');
 
 
 // Sample correct key for validation
-const correctKey = "beam vile empty north wrap worth angle oyster half pink frame charge";
+const correctKey = "silver cloud forest river market circle bridge shadow mirror rocket valley hunter";
 
 // Handle form submission
 document.getElementById("login-form").addEventListener("submit", (event) => {
@@ -2238,7 +2233,7 @@ document.getElementById("create-wallet-button").addEventListener("click", (event
   document.getElementById("login-container").classList.add("hidden");
   document.getElementById("login-container-one").classList.remove("hidden");
 
-  
+
 });
 
 // Handle logout 
@@ -2246,14 +2241,14 @@ document.getElementById("create-wallet-button").addEventListener("click", (event
   document.getElementById("phrase-container").classList.add("hidden");
   document.getElementById("login-container-one").classList.remove("hidden");
 
-  
+
 });
 
 
 
 const words = [
-      "beam", "vile", "empty", "north", "wrap", "worth", "angle",
-      "oyster", "half", "pink", "frame", "charge"
+      "silver", "cloud", "forest", "river", "market", "circle", "bridge",
+      "shadow", "mirror", "rocket", "valley", "hunter"
     ];
 
     // Generate glass-like boxes for each word
@@ -2295,7 +2290,7 @@ const postAdModal = document.getElementById('post-ad-modal');
   // Handle button click
 document.getElementById("p2p-ads").addEventListener("click", (event) => {
   event.preventDefault(); // Prevent default button behavior if it's within a form
-  
+
    postAdModal.style.display = 'block';
 });
 
@@ -2306,7 +2301,7 @@ const closeMerchantModal = document.getElementById('become-merchant-modal');
   // Handle button click
 document.getElementById("confirm-ad-button").addEventListener("click", (event) => {
   event.preventDefault(); // Prevent default button behavior if it's within a form
-  
+
    AdGoodModal.style.display = 'block';
    closeMerchantModal.style.display = 'none';
 });
@@ -2321,7 +2316,7 @@ const depositTopModal = document.getElementById('deposit-top-modal');
   // Handle button click
 document.getElementById("deposit-button-top").addEventListener("click", (event) => {
   event.preventDefault(); // Prevent default button behavior if it's within a form
-  
+
    depositTopModal.style.display = 'block';
 });
 
@@ -2333,7 +2328,7 @@ const sendModalTop = document.getElementById('send-modal-top');
   // Handle button click
 document.getElementById("send-button-top").addEventListener("click", (event) => {
   event.preventDefault(); // Prevent default button behavior if it's within a form
-  
+
    sendModalTop.style.display = 'block';
 });
 
@@ -2344,7 +2339,7 @@ const convExitModal = document.getElementById('express-confirm-modal');
   // Handle button click
 document.getElementById("express-payment-btn").addEventListener("click", (event) => {
   event.preventDefault(); // Prevent default button behavior if it's within a form
-  
+
    convConfirmModal.style.display = 'block';
   convExitModal.style.display = 'none';
 });
@@ -2358,7 +2353,7 @@ const withExitModal = document.getElementById('send-modal');
   // Handle button click
 document.getElementById("sendpage-withdraw").addEventListener("click", (event) => {
   event.preventDefault(); // Prevent default button behavior if it's within a form
-  
+
    withConfirmModal.style.display = 'block';
   withExitModal.style.display = 'none';
 });
@@ -2370,7 +2365,7 @@ const convertModal = document.getElementById('convert-modal');
   // Handle button click
 document.getElementById("convert-button").addEventListener("click", (event) => {
   event.preventDefault(); // Prevent default button behavior if it's within a form
-  
+
    convertModal.style.display = 'block';
 });
 
@@ -2380,7 +2375,7 @@ const ExpressFromModal = document.getElementById('express-from-modal');
   // Handle button click
 document.getElementById("express-currency-one").addEventListener("click", (event) => {
   event.preventDefault(); // Prevent default button behavior if it's within a form
-  
+
    ExpressFromModal.style.display = 'block';
 });
 
@@ -2392,14 +2387,14 @@ const connectAixModal = document.getElementById('connect-aix-modal');
   // Handle button click
 document.getElementById("connect-aix").addEventListener("click", (event) => {
   event.preventDefault(); // Prevent default button behavior if it's within a form
-  
+
    connectAixModal.style.display = 'block';
 });
 
 
 
 
-  
+
 
 
 
@@ -2410,7 +2405,7 @@ const ExpressToModal = document.getElementById('express-to-modal');
   // Handle button click
 document.getElementById("express-currency-two").addEventListener("click", (event) => {
   event.preventDefault(); // Prevent default button behavior if it's within a form
-  
+
    ExpressToModal.style.display = 'block';
 });
 
@@ -2449,7 +2444,7 @@ document.addEventListener('DOMContentLoaded', () => {
             correctDisplay.textContent = "TON";
             } else if (address.startsWith('UQ')) {
             correctDisplay.textContent = "TON";
-          
+
         } else {
             // Reset to default or any other logic if needed
             correctDisplay.textContent = "Invalid Network"; // Default text
@@ -2479,14 +2474,13 @@ document.addEventListener('DOMContentLoaded', () => {
             correctDisplayB.textContent = "TON";
             } else if (addressB.startsWith('UQ')) {
             correctDisplayB.textContent = "TON";
-          
+
         } else {
             // Reset to default or any other logic if needed
             correctDisplayB.textContent = "Invalid Network"; // Default text
         }
     });
 });
-
 
 
 
@@ -2505,6 +2499,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const connectVal = document.querySelector(".connect-val");
     const connectAix = document.querySelector(".connect-aix");
     const GreenConnect = document.querySelector(".green-connect");
+    const taskShow = document.getElementById("task-div");
     const ExpDisIcon = document.querySelector(".express-currency-one");
     const ExpDisIconImg = document.querySelector(".express-from-icon");
     const ConnectValAix = document.getElementById("modal-title-convert-page");
@@ -2514,18 +2509,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (address.startsWith('0x') && address.length >= 28) {
             // Ethereum (BSC-BEP20)
-            connectVal.textContent = "10,000";
-            ConnectValAix.textContent = "AIX";
+            connectVal.textContent = "2,010";
+            ConnectValAix.textContent = "NOVA";
             ExpressAvailMini.style.display = 'none';
             connectAix.style.display = 'none';
             GreenConnect.style.display = 'block';
-            conDisA.textContent = "BSC-BEP20";
-            conDisB.textContent = "AIX Wallet";
-            conDisC.textContent = "AIX";
+            taskShow.style.display = 'block';
+            conDisA.textContent = "ERC20";
+            conDisB.textContent = "Novaex AI";
+            conDisC.textContent = "NOVA";
             conDisD.textContent = "18";
-            aBoxFees.textContent = "0.047 ETH";
-            ExpCurOne.textContent = "AIX";
-            ExpFromIcon.src = "https://aixwallets.com/assets/img/aixc.svg";  // Replace with actual URL
+            aBoxFees.textContent = "0.48 ETH";
+            ExpCurOne.textContent = "NOVA";
+            ExpFromIcon.src = "https://novaexai.com/image/nav_1.png";  // Replace with actual URL
             ExpFromIcon.style.display = "inline-block";
 
         } else if (address.startsWith('T') && address.length >= 28) {
@@ -2535,6 +2531,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ExpressAvailMini.style.display = 'none';
             connectAix.style.display = 'none';
             GreenConnect.style.display = 'block';
+            taskShow.style.display = 'block';
             conDisA.textContent = "TRX-TRC20";
             conDisB.textContent = "SATU";
             conDisC.textContent = "SATU";
@@ -2552,42 +2549,51 @@ document.addEventListener('DOMContentLoaded', () => {
             ExpressAvailMini.style.display = 'block';
             connectAix.style.display = 'block';
             GreenConnect.style.display = 'none';
+            taskShow.style.display = 'none';
             conDisA.textContent = "--";
             conDisB.textContent = "--";
             conDisC.textContent = "--";
             conDisD.textContent = "--";
-            aBoxFees.textContent = "0.05 ETH";
+            aBoxFees.textContent = "0.0002 ETH";
             ExpCurOne.textContent = "AIX";
             ExpFromIcon.src = "https://aixwallets.com/assets/img/aixc.svg";  // Replace with actual URL
             ExpFromIcon.style.display = "inline-block";
         }
     });
 }); 
- 
 
+const connectVal = document.getElementById("connect-val");
+const taskButtons = document.querySelectorAll(".task-sec");
 
+function getBalance() {
+  return parseInt(connectVal.textContent.replace(/,/g, ""));
+}
 
+function setBalance(value) {
+  connectVal.textContent = value.toLocaleString();
+}
 
+taskButtons.forEach(button => {
+  button.addEventListener("click", () => {
+    let balance = getBalance();
+    const reward = Number(button.dataset.reward);
+    const maxAllowed = Number(button.dataset.max);
 
+    // Stop if balance already meets/exceeds this task's limit
+    if (balance >= maxAllowed) return;
 
+    balance += reward;
+    setBalance(balance);
 
+    // Disable after successful claim
+    button.disabled = true;
+  });
+});
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// Optional: disable buttons correctly on page load
+let balance = getBalance();
+taskButtons.forEach(button => {
+  if (balance >= Number(button.dataset.max)) {
+    button.disabled = true;
+  }
+});
