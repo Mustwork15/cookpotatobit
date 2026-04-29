@@ -1463,7 +1463,7 @@ close-button-three:hover,
 
 .p2p-adapt-board{
   position: fixed;
-  bottom: 0px;
+  bottom: 30px;
   left: 0px;
   display: flex;
   flex-direction: row;
