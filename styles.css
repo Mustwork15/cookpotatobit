@@ -1,6 +1,7 @@
 * {
   box-sizing: border-box;
   font-family: 'FF Din', sans-serif;
+  
 }
 
 @font-face {
@@ -9,8 +10,32 @@
 }
 
 
+.all-offset {
+  transform: translateY(10px);
+  width: 100%;
+  height: 90%;            
+  padding: 0px;
+  background-color: #181A20;
+}
 
-      
+
+
+.top-bar-head{
+  font-size: 20px;
+  font-weight: bold;
+  background-color: #181A20;
+  width: 100%;
+  padding: 15px 0px;
+  padding-top: 50px;
+  text-align: center;
+}
+  
+.top-bar-verif{
+  width: 18px;
+  height: 21px;
+  padding-bottom: 3px;
+  vertical-align: text-bottom;
+}
 
 
      
@@ -423,17 +448,63 @@ textarea.invalid {
 
 
 
+.int-con-error {
+  width: 95%; /* equivalent to w-14 */
+  height: 15px; /* equivalent to h-14 */
+  font-size: 14px;
+  text-align: center;
+  background-color: #181A20; /* equivalent to bg-gray-300 */
+  border-radius: 0.5rem; /* equivalent to rounded-lg */
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes int-con-error {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+
+.crypto-skeleton {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border-radius: 0.5rem;
+  background-color: rgba(50, 50, 50, 0.4); /* light gray */
+  margin-bottom: 8px;
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.crypto-skeleton .skeleton-logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #d1d5db;
+}
+
+.crypto-skeleton .skeleton-text {
+  height: 15px;
+  border-radius: 4px;
+  background-color: #d1d5db;
+  margin: 5px 0;
+}
+
+
 body {
   font-family: 'FF Din', sans-serif;
   background-color: #181A20;
   color: #fff;
   margin: 0;
   padding: 0;
+
   display: flex;
   flex-direction: column;
   align-items: center;
+
   height: 100vh;
-  
   overflow: hidden;
 }
 
@@ -447,7 +518,7 @@ body {
 
 .home-page{
   width: 100%;
-  overflow-y: auto;
+  
 }
 
 
@@ -510,7 +581,8 @@ body {
 
 .cryptos {
   margin-top: 20px;
-  
+  height: 600px;
+  overflow-y: auto;
 }
 
 .cryptos h3 {
@@ -2336,6 +2408,13 @@ footer {
   right: calc(100% - 110px);
 }
 
+
+.binance-icon-verified{
+  width: 25px;
+  position: absolute;
+  right: calc(100% - 140px);
+}
+
 .binance-icon-phrase{
   width: 90px;
   position: absolute;
@@ -2931,6 +3010,7 @@ footer {
   display: flex;
   flex-direction: row;
   max-width: 100%;
+  justify-content: space-between;
 } 
 
 .spot-trading-box{
@@ -2938,7 +3018,7 @@ footer {
  border-radius: 10px;
  margin: 8px;
  padding: 10px;
- font-size: 14px; 
+ font-size: 14px;
 }    
 
 #balance-inside-logo img{
@@ -3360,6 +3440,7 @@ footer {
   margin-left: 8%;
   margin-top: 10px;
   margin-bottom: 10px;
+  border-radius: 25px;
 }
 
 .not-icon-b{
@@ -3991,7 +4072,10 @@ footer {
   padding: 15px;
   margin: 15px;
   text-decoration: none;
-  width: 110px;
+  width: 130px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .task-img{
@@ -4034,3 +4118,18 @@ footer {
   background-color: none;
 }
 
+
+/* Remove tap highlight for mobile */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Remove focus outline for clickable elements */
+button, a, input, div[role="button"] {
+  outline: none;
+}
+
+/* Optional: make cursor pointer for clickable divs */
+div[role="button"] {
+  cursor: pointer;
+}
